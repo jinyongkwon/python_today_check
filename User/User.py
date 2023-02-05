@@ -51,7 +51,10 @@ class User:
         check = self.file.check_user_dir()
         if check != "완료":
             self.file.create_user_dir("Plan")
-        if self.set_process() == 1:
+        else:
+            plan_list = self.start_plan()
+            self.file.make_csv(plan_list, "Plan")
+        if self.set_process() == 1 :
             plan_list = self.start_plan()
             self.file.make_csv(plan_list, "Plan")
 
